@@ -94,7 +94,19 @@ function listarProyectos(){
 
                 filas += '<td>'+item.longitud+'</td>';
 
-                filas += '<td>'+item.estado_proyecto+'</td>';
+                if (item.estado_proyecto ==0){  //indicando el estado según la BD, 0 o 1 y se muestra el enunciado
+                  filas += '<td>Iniciado</td>';
+
+                }else if(item.estado_proyecto ==1){
+                  filas += '<td>En curso</td>';
+
+                }else{
+                  filas += '<td>Finalizado</td>';
+                }
+
+                //filas += '<td>'+item.estado_proyecto+'</td>';
+
+                filas += '<td><button class="btn btn-primary" onclick="update('+item.id_operaciones+')">update</button></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarProyecto('+item.id_operaciones+')">Eliminar</button></td>';
                // filas += '<td><button class="btn btn-primary" onclick="text()">Eliminar</button></td>';
