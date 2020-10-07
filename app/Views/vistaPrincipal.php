@@ -135,7 +135,7 @@ function listarProyectos(){
             {
               console.log(respuesta);
               
-              alert("eliminación correcta!!");
+              alert("Proceso guardado!!");
               location.reload(); //código me sirve para que una vez ejecutado el boton eliminar, actualice
 
               },
