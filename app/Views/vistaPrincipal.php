@@ -107,7 +107,7 @@ function listarProyectos(){
 
                 //filas += '<td>'+item.estado_proyecto+'</td>';
 
-                filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.estado_proyecto+')">Proceso</button></td>';
+                filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+')">Proceso</button></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarProyecto('+item.id_operaciones+')">Eliminar</button></td>';
                // filas += '<td><button class="btn btn-primary" onclick="text()">Eliminar</button></td>';
@@ -129,7 +129,7 @@ function listarProyectos(){
             url:"http://localhost/calculosElectricos/public/estadoproyecto",
             method:"POST", //Envía la data
             data:{idOperaciones:var_idOperaciones, estadoProyecto:var_estadoProyecto},
-            //data:{estadoProyecto:var_estadoProyecto},
+            
             dataType: "text",
            
             success:function(respuesta) //ste es el json con toda la data que responde la confirmación
@@ -137,17 +137,18 @@ function listarProyectos(){
               console.log(respuesta);
 
               //
-              if (var_estadoProyecto==0){
+              if (var_estadoProyecto == 0){
 
-                var_estadoProyecto = var_estadoProyecto + 1;
+                var_estadoProyecto + 1;
+                
+              }else if(var_estadoProyecto == 1){
 
-              }else if(var_estadoProyecto==1){
                 var_estadoProyecto +1;
 
               }else{
+
                 var_estadoProyecto +1;
               }
-
 
               
               alert("Proceso guardado!!");
