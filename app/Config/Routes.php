@@ -35,7 +35,9 @@ $routes->get('/', 'Home::index');
 //Aquí se ponen todos los servicios que se crean
 $routes->get('listaproyectos', 'controllerServicePrincipal::pruebaGet');
 $routes->post('nuevoproyecto', 'controllerServicePrincipal::insertarProyecto'); 
- $routes->post('eliminarproyecto', 'controllerServicePrincipal::eliminarProyecto'); 
+$routes->post('eliminarproyecto', 'controllerServicePrincipal::eliminarProyecto'); 
+$routes->post('estadoproyecto', 'controllerServicePrincipal::estadoProyecto'); 
+
 //uno es el nombre de servicio y el otro el controlador de servicio
 
 $routes->get('listapostes', 'controllerServiceMantPoste::Get');

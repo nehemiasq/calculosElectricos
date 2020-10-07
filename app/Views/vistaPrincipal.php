@@ -94,6 +94,7 @@ function listarProyectos(){
 
                 filas += '<td>'+item.longitud+'</td>';
 
+
                 if (item.estado_proyecto ==0){  //indicando el estado según la BD,se muestra el enunciado
                   filas += '<td>Iniciado</td>';
 
@@ -118,7 +119,36 @@ function listarProyectos(){
           });
 
 }
+      
+      function estadoProyecto(){
 
+      var var_idOperaciones = $("#idOperaciones").val();
+      var var_estadoProyecto = $("#estadoProyecto").val();
+
+          $.ajax({
+            url:"http://localhost/calculosElectricos/public/estadoproyecto",
+            method:"POST", //Envía la data
+            data:{idOperaciones:var_idcable, estadoProyecto:var_estadoProyecto},
+            dataType: "text",
+           
+            success:function(respuesta) //ste es el json con toda la data que responde la confirmación
+            {
+              console.log(respuesta);
+              
+              alert("eliminación correcta!!");
+              location.reload(); //código me sirve para que una vez ejecutado el boton eliminar, actualice
+
+              },
+
+              error:function() //este es el json con toda la data que responde la confirmación
+            {
+              console.log("error");
+              alert("error!!");
+
+              }
+          });
+
+        }
 
         function eliminarProyecto(param_idProyecto){
 

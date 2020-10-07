@@ -63,4 +63,23 @@ class controllerServicePrincipal extends ResourceController
 
     }
 
+
+    public function estadoProyecto(){
+        
+        $idOperaciones = $this->request->getPost('idOperaciones'); 
+        $estadoProyecto = $this->request->getPost('estadoProyecto'); 
+        
+
+        $data = [
+             
+            'id_operaciones' => $idOperaciones,
+            'estado_proyecto' => $estadoProyecto
+
+        ];
+
+         $this->model->estadoProyectoModel($data, $idOperaciones);
+        
+        return '222';
+    }
+
 }

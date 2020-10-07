@@ -23,5 +23,15 @@ class OperacionesModel extends Model
 
     }
 
+    public function estadoProyectoModel($data, $id){
+
+      $db      = \Config\Database::connect();
+      $builder = $db->table('operaciones');
+      
+      $builder->where('id_operaciones', $id);
+      $builder->update($data);
+
+    }
+
     
 }
