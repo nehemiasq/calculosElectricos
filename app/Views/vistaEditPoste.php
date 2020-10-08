@@ -36,9 +36,11 @@
 </center>
 </div>
 </body>
+
 <tbody id='tabla_jalarPoste'> <!--creando una variable para mi tabla-->
-   
+
 </tbody>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -55,22 +57,22 @@ function jalarPoste(){
             {
               console.log(respuesta);
 
-              filas = ""; //declarando una variable en Jscript
+              label = ""; //declarando una variable en Jscript
                 $.each(respuesta,function(key,item){
 
-                filas += '<tr>';
+                label += '<br>';
 
-                filas += '<th scope="row">'+item.id_poste+'</th>';
+                label += '<th scope="row">'+item.id_poste+'</th>';
     
-                filas += '<td>'+item.tipo_poste+'</td>';
+                label += '<td>'+item.tipo_poste+'</td>';
                 
-                filas += '<td>'+item.altura_poste+'</td>';
+                label += '<td>'+item.altura_poste+'</td>';
 
                 //filas += '<td><button class="btn btn-primary" onclick="eliminarPoste('+item.id_poste+')">Eliminar</button></td>';
 
-                filas+= '</tr>';
+                label+= '</br>';
                 });
-              $("#tabla_jalarPoste").html(filas);
+              $("#tabla_jalarPoste").html(label);
 
               };
           //});
