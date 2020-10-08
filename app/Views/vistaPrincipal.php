@@ -105,9 +105,17 @@ function listarProyectos(){
                   filas += '<td>Finalizado</td>';
                 }
 
-                //filas += '<td>'+item.estado_proyecto+'</td>';
 
-                filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+')">Proceso</button></td>';
+                //filas += '<td>'+item.estado_proyecto+'</td>';
+                if (item.estado_proyecto <2){
+                 filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>'; 
+
+                }else{
+                  filas += '<td><button class="btn btn-primary" disabled onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
+                }
+
+
+                //filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarProyecto('+item.id_operaciones+')">Eliminar</button></td>';
                // filas += '<td><button class="btn btn-primary" onclick="text()">Eliminar</button></td>';
@@ -120,10 +128,28 @@ function listarProyectos(){
 
 }
       
-      function estadoProyecto(){
+      function estadoProyecto(param_id, param_estado){
 
-      var var_idOperaciones = $("#idOperaciones").val();
-      var var_estadoProyecto = $("#estadoProyecto").val();
+      var var_idOperaciones = param_id;
+      var var_estadoProyecto = param_estado;
+
+      console.log("id: "+var_idOperaciones); //para imprimir los errores
+      console.log("estado: "+var_estadoProyecto); //para imprimir los errores
+
+      if (var_estadoProyecto == 0){
+
+                var_estadoProyecto = var_estadoProyecto + 1;
+                
+              }else if(var_estadoProyecto == 1){
+
+                var_estadoProyecto = var_estadoProyecto + 1;
+
+              }else{
+
+                var_estadoProyecto = var_estadoProyecto + 1;
+              }
+
+              
 
           $.ajax({
             url:"http://localhost/calculosElectricos/public/estadoproyecto",
@@ -136,21 +162,7 @@ function listarProyectos(){
             {
               console.log(respuesta);
 
-              //
-              if (var_estadoProyecto == 0){
-
-                var_estadoProyecto + 1;
-                
-              }else if(var_estadoProyecto == 1){
-
-                var_estadoProyecto +1;
-
-              }else{
-
-                var_estadoProyecto +1;
-              }
-
-              
+                            
               alert("Proceso guardado!!");
               location.reload(); //código me sirve para que una vez ejecutado el boton eliminar, actualice
 
