@@ -25,10 +25,9 @@
                 <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 
                 <!--<a href="insert.php" class="btn btn__nuevo">Nuevo</a>-->
-            
-
-            </div>
-            <table class="table table-striped">
+  </div>
+  
+  <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Id Cable</th>

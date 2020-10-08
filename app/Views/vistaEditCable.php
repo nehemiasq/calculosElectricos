@@ -33,10 +33,13 @@
   
   <a href="<?php echo base_url()?>/public/ControllerCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
 </center>
-
     </div>
-    
 </body>
+
+<tbody id='tabla_jalarCable'> <!--creando una variable para mi tabla-->
+   
+</tbody>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -69,6 +72,38 @@ function updateCable(){
             {
               console.log("error");
               alert("error!!");
+
+              }
+          });
+}
+
+jalarCables(); //Creo mi método
+
+function jalarCables(){
+        $.ajax({
+            url:"http://localhost/calculosElectricos/public/listacables",
+            method:"GET", //indico que quiero traer info de la BD
+       
+            success:function(respuesta) //este es el json con toda la data
+            {
+              console.log(respuesta);
+
+              filas = ""; //declarando una variable en Jscript
+                $.each(respuesta,function(key,item){
+
+                filas += '<tr>';
+
+                filas += '<th scope="row">'+item.id_cable+'</th>';
+    
+                filas += '<td>'+item.tiro_cable+'</td>';
+                
+                filas += '<td>'+item.peso_cable+'</td>';
+
+                //filas += '<td><button class="btn btn-primary" onclick="eliminarCable('+item.id_cable+')">Eliminar</button></td>';
+
+                filas+= '</tr>';
+                });
+              $("#tabla_jalarCable").html(filas); //llamo al id creado de la tabla Cable
 
               }
           });
