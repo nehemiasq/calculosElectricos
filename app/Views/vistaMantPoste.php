@@ -25,10 +25,9 @@
                 <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 
                 <!--<a href="insert.php" class="btn btn__nuevo">Nuevo</a>-->
-            
+          </div>
 
-            </div>
-            <table class="table table-striped">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Id Poste</th>
@@ -41,6 +40,7 @@
 
   </tbody>
 </table>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
