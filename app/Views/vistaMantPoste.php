@@ -18,9 +18,9 @@
 
                 <a href="<?php echo base_url()?>/public/ControllerFormNuevoPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Nuevo Poste</a>
 
-                <a href="<?php echo base_url()?>/public/ControllerFormEditPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a>
+                <!--<a href="<?php //echo base_url()?>/public/ControllerFormEditPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a>
 
-                <!--<input type="submit" class="btn" name="btn_buscar" value="Eliminar">-->
+                <input type="submit" class="btn" name="btn_buscar" value="Eliminar">-->
                 
                 <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 
@@ -67,6 +67,8 @@ function listarPostes(){
                 filas += '<td>'+item.tipo_poste+'</td>';
                 
                 filas += '<td>'+item.altura_poste+'</td>';
+
+                filas += '<td><button class="btn btn-primary" onclick="editarPoste('+item.id_poste+')">Editar</button></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarPoste('+item.id_poste+')">Eliminar</button></td>';
 
