@@ -24,7 +24,7 @@
   <br>
   <div class="form-group">
     <label for="texto">Contraseña</label>
-    <input id="claveUsuario" type="text" style="width : 150px; heigth : 150px" class="form-control" placeholder="Ingrese contraseña">
+    <input id="claveUsuario" type="password" style="width : 150px; heigth : 150px" class="form-control" placeholder="Ingrese contraseña">
   </div>
 
   <br>
