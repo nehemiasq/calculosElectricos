@@ -17,7 +17,7 @@ class LoginModel extends Model
               ->findAll();  //ejecuta el query
     }
 
-    public function insertarPosteModel($data){
+    public function insertarUsuarioModel($data){
 
     	return $this->db->table($this->table)->insert($data); 
   
