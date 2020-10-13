@@ -14,7 +14,7 @@
 <center><h2>EDITAR POSTE</h2></center>
   
   <center>
-  <div class="form-group">
+  <!--<div class="form-group">
     <label for="texto">Id Poste</label>
     <input id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">
   </div>
@@ -27,6 +27,23 @@
   <div class="form-group">
     <label for="texto">Altura</label>
     <input id="alturaPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">
+  </div>-
+
+  <button class="btn btn-primary" onclick="updatePoste()">Modificar</button>
+
+  <a href="<?php //echo base_url()?>/public/ControllerPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>-->
+
+</center>
+</div>
+</body>
+
+
+<form>
+<center><div class="form-group">
+  <br><label for="texto">Id Poste</label></br>
+  <br><label for="texto">Tipo</label></br>
+  <br><label for="texto">Altura</label></br>
+  
   </div>
 
   <button class="btn btn-primary" onclick="updatePoste()">Modificar</button>
@@ -34,12 +51,14 @@
   <a href="<?php echo base_url()?>/public/ControllerPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
 
 </center>
-</div>
+
+<body id='form_jalarPoste'> <!--creando una variable para mi formulario-->
+
 </body>
 
-<tbody id='tabla_jalarPoste'> <!--creando una variable para mi tabla-->
+</form>
 
-</tbody>
+
 
 </html>
 
@@ -49,6 +68,10 @@
 jalarPoste(); //Creo mi método
 
 function jalarPoste(){
+
+  var var_idposte = $("#idPoste").val();
+  var var_tipoposte = $("#tipoPoste").val();
+  var var_alturaposte = $("#alturaPoste").val();
         /*$.ajax({
             url:"http://localhost/calculosElectricos/public/listapostes",
             method:"GET", //indico que quiero traer info de la BD*/
@@ -57,22 +80,33 @@ function jalarPoste(){
             {
               console.log(respuesta);
 
-              label = ""; //declarando una variable en Jscript
+              formu = ""; //declarando una variable en Jscript
                 $.each(respuesta,function(key,item){
 
-                label += '<br>';
+                formu += '<form>';
 
-                label += '<th scope="row">'+item.id_poste+'</th>';
-    
-                label += '<td>'+item.tipo_poste+'</td>';
+                        
+                //formu += <input type="text" id='+item.id_poste+'/>
+                //filas += '<td>'+item.tipo_poste+'</td>';
+
+                formu += <id='+item.id_poste+' input type="text" style="width : 150px; heigth : 150px" class="form-control">
+
+
+                formu += '<td>'+item.tipo_poste+'</td>';
+                <input id="tipoPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">
                 
-                label += '<td>'+item.altura_poste+'</td>';
+                formu += '<td>'+item.altura_poste+'</td>';
+                <input id="alturaPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">
 
                 //filas += '<td><button class="btn btn-primary" onclick="eliminarPoste('+item.id_poste+')">Eliminar</button></td>';
 
-                label+= '</br>';
+                formu += '<button class="btn btn-primary" onclick="updatePoste()">Modificar</button>'
+
+                formu += '<a href="<?php echo base_url()?>/public/ControllerPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>'
+
+                formu+= '</form>';
                 });
-              $("#tabla_jalarPoste").html(label);
+              $("#form_jalarPoste").html(formu);
 
               };
           //});
