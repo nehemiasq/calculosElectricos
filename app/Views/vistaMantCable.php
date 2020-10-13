@@ -18,9 +18,9 @@
 
                 <a href="<?php echo base_url()?>/public/ControllerFormNuevoCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Nuevo</a>
 
-                <a href="<?php echo base_url()?>/public/ControllerFormEditCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a>
+                <!--<a href="<?php //echo base_url()?>/public/ControllerFormEditCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a>
 
-                <!--<input type="submit" class="btn" name="btn_buscar" value="Eliminar">-->
+                <input type="submit" class="btn" name="btn_buscar" value="Eliminar">-->
 
                 <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 
@@ -66,6 +66,8 @@ function listarCables(){
                 filas += '<td>'+item.tiro_cable+'</td>';
                 
                 filas += '<td>'+item.peso_cable+'</td>';
+
+                filas += '<td><button class="btn btn-primary" onclick="editarCable('+item.id_cable+')">Editar</button></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarCable('+item.id_cable+')">Eliminar</button></td>';
 
