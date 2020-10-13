@@ -14,7 +14,9 @@
 <center><h2>EDITAR CABLE</h2></center>
   
   <center>
-  <div class="form-group">
+
+    <div id="tabla_jalarCable"></div> <!--Varible creada para el form-->
+  <!--<div class="form-group">
     <label for="texto">Id Cable</label>
     <input id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control">
   </div>
@@ -27,7 +29,7 @@
   <div class="form-group">
     <label for="texto">Peso Cable</label>
     <input id="pesoCable" type="text" style="width : 150px; heigth : 150px" class="form-control">
-  </div>
+  </div>-->
 
   <button class="btn btn-primary" onclick="updateCable()">Modificar</button>
   
@@ -35,10 +37,6 @@
 </center>
     </div>
 </body>
-
-<tbody id='tabla_jalarCable'> <!--creando una variable para mi tabla-->
-   
-</tbody>
 
 </html>
 
@@ -48,34 +46,40 @@
 jalarCable(); //Creo mi método
 
 function jalarCable(){
-        /*$.ajax({
-            url:"http://localhost/calculosElectricos/public/listacables",
-            method:"GET", //indico que quiero traer info de la BD*/
-       
-            success:function(respuesta) //este es el json con toda la data
-            {
-              console.log(respuesta);
+               
+            filas = ""; //declarando una variable en Jscript
+                        //dibujando el formulario en JS
 
-              filas = ""; //declarando una variable en Jscript
-                $.each(respuesta,function(key,item){
+                filas += '<div class="form-group">';
 
-                filas += '<tr>';
-
-                filas += '<th scope="row">'+item.id_cable+'</th>';
+                filas += '<label for="texto">Id Cable</label>';
     
-                filas += '<td>'+item.tiro_cable+'</td>';
-                
-                filas += '<td>'+item.peso_cable+'</td>';
+                filas += '<input id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
 
-                //filas += '<td><button class="btn btn-primary" onclick="eliminarCable('+item.id_cable+')">Eliminar</button></td>';
+                filas +='</div>';
 
-                filas+= '</tr>';
-                });
-              $("#tabla_jalarCable").html(filas); //llamo al id creado de la tabla Cable
+
+                filas += '<div class="form-group">';
+
+                filas += '<label for="texto">Tiro de rotura</label>';
+    
+                filas += '<input id="tiroCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+
+                filas +='</div>';
+
+
+                filas += '<div class="form-group">';
+
+                filas += '<label for="texto">Peso Cable</label>';
+    
+                filas += '<input id="pesoCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+
+                filas +='</div>';
+                                             
+              $("#tabla_jalarCable").html(filas); //llamo a la variable creada
 
               };
-          //});
-}
+         
 
 function updateCable(){
   var var_idcable = $("#idCable").val();
