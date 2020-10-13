@@ -32,6 +32,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+//API Login
+$routes->post('usuariologin', 'controllerServiceLogin::crearUsuario'); 
+
 //Aquí se ponen todos los servicios que se crean
 $routes->get('listaproyectos', 'controllerServicePrincipal::pruebaGet');
 $routes->post('nuevoproyecto', 'controllerServicePrincipal::insertarProyecto'); 

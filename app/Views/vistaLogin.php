@@ -13,21 +13,25 @@
                 
 <center><h2>Bienvenido al Sistema de Gestión de Proyectos ABS INGENIEROS</h2></center>
   
+  <br>
+  <br>
   <center>
     <div class="form-group">
     <label for="texto">Usuario</label>
     <input id="nombreUsuario" type="text" style="width : 150px; heigth : 150px" class="form-control" placeholder="Ingrese usuario">
   </div>
 
+  <br>
   <div class="form-group">
     <label for="texto">Contraseña</label>
     <input id="claveUsuario" type="text" style="width : 150px; heigth : 150px" class="form-control" placeholder="Ingrese contraseña">
   </div>
 
-  <button class="btn btn-primary" onclick="guardarCable()">Guardar</button>
+  <br>
+  <button class="btn btn-primary" onclick="guardarCable()">Ingresar</button>
 
-  <button type="submit" class="btn btn-primary">Nuevo</button>
-  <a href="<?php echo base_url()?>/public/ControllerCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
+  <!--<a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Ingresar</a>-->
+
 </center>
 
     </div>
@@ -38,7 +42,7 @@
 <script type="text/javascript">
 
 
-function guardarCable(){
+/*function guardarCable(){
   var var_idcable = $("#idCable").val();
   var var_tirocable = $("#tiroCable").val();
   var var_pesocable = $("#pesoCable").val();
@@ -67,6 +71,6 @@ function guardarCable(){
 
               }
           });
-}
+}*/
 
 </script>
