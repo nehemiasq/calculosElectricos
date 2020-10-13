@@ -15,7 +15,7 @@
   
   <center>
 
-    <div id="tabla_jalarCable"></div> <!--Varible creada para el form-->
+    <div id="form_editCable"></div> <!--Varible creada para el form-->
   <!--<div class="form-group">
     <label for="texto">Id Cable</label>
     <input id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control">
@@ -35,7 +35,8 @@
   
   <a href="<?php echo base_url()?>/public/ControllerCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
 </center>
-    </div>
+
+</div>
 </body>
 
 </html>
@@ -43,9 +44,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
-jalarCable(); //Creo mi método
+editarCable(); //Creo mi método
 
-function jalarCable(){
+function editarCable(){
                
             filas = ""; //declarando una variable en Jscript
                         //dibujando el formulario en JS
@@ -76,7 +77,7 @@ function jalarCable(){
 
                 filas +='</div>';
                                              
-              $("#tabla_jalarCable").html(filas); //llamo a la variable creada
+              $("#form_editCable").html(filas); //llamo a la variable creada
 
               };
          
