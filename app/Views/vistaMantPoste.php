@@ -68,14 +68,49 @@ function listarPostes(){
                 
                 filas += '<td>'+item.altura_poste+'</td>';
 
-                filas += '<td><button class="btn btn-primary" onclick="editarPoste('+item.id_poste+')">Editar</button></td>';
+          /*      filas += '<td><button class="btn btn-primary" onclick="editarPoste('+item.id_poste+')">Editar</button></td>';
+*/
+                filas += '<td><a href="http://localhost/calculosElectricos/public/ControllerFormEditPoste?id='+item.id_poste+'" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarPoste('+item.id_poste+')">Eliminar</button></td>';
 
                 filas+= '</tr>';
-                
+
                 });
               $("#tabla_MantPoste").html(filas);
+
+              }
+          });
+}
+
+function editarPoste(){
+  var var_idposte = $("#idPoste").val();
+  var var_tipoposte = $("#tipoPoste").val();
+  var var_alturaposte = $("#alturaPoste").val();
+
+
+        $.ajax({
+            url:"http://localhost/calculosElectricos/public/posteid",
+            method:"GET", //Envía la data
+            data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            dataType: "text",
+           
+            success:function(respuesta) //este es el json con toda la data que responde la confirmación
+            {
+              console.log(respuesta);
+              
+              $("#idPoste").val(""); //dejando campos en blanco luego de guardar
+              $("#tipoPoste").val("");
+              $("#alturaPoste").val("");
+              
+              alert("inserción correcta!!");
+
+              },
+
+              error:function() //este es el json con toda la data que responde la confirmación
+            {
+              console.log("error");
+              alert("error!!");
 
               }
           });
