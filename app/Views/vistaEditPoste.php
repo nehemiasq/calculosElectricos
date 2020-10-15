@@ -12,7 +12,7 @@
     <div class="contenedor">
                 
 <center><h2>EDITAR POSTE</h2></center>
-  
+  <input type="text" id="get_id_poste" value="<?php echo $_GET["id"]; ?>" hidden> </input>
   <center>
     <div id="form_editarPoste"></div>
   <!--<div class="form-group">
@@ -50,6 +50,10 @@ editarPoste(); //Creo mi método
 
 function editarPoste(){
 
+ var get_id_poste =  $("#get_id_poste").val();
+
+/* implementar ajax para llamar a tu servico GetId*/
+
             filas = ""; //declarando una variable en Jscript
                         //dibujando el formulario en JS
 
@@ -57,7 +61,7 @@ function editarPoste(){
 
                 filas += '<label for="texto">Id Poste</label>';
     
-                filas += '<input id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="">';
 
                 filas +='</div>';
 
