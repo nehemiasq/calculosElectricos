@@ -17,9 +17,10 @@ class controllerServiceMantPoste extends ResourceController
     	return $this->respond($this->model->findAll());
     }
 
-    public function GetId()
+    public function GetId() //Funcion para editar poste
     {
-        return $this->respond($this->model->findAll());
+        $idPoste = $this->request->getPost('idPoste'); 
+        return $this->respond($this->model->find($idPoste));
     }
 
     public function insertarPoste()
