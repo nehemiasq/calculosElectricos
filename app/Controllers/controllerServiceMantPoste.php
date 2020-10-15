@@ -12,9 +12,14 @@ class controllerServiceMantPoste extends ResourceController
         return "holaaaa MantPoste!";
     }
 
-    public function Get()
+    public function Get() //listar postes
     {
     	return $this->respond($this->model->findAll());
+    }
+
+    public function GetId()
+    {
+        return $this->respond($this->model->findAll());
     }
 
     public function insertarPoste()

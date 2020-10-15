@@ -73,6 +73,7 @@ function listarPostes(){
                 filas += '<td><button class="btn btn-primary" onclick="eliminarPoste('+item.id_poste+')">Eliminar</button></td>';
 
                 filas+= '</tr>';
+                
                 });
               $("#tabla_MantPoste").html(filas);
 
