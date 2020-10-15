@@ -51,8 +51,22 @@ editarPoste(); //Creo mi método
 function editarPoste(){
 
  var get_id_poste =  $("#get_id_poste").val();
+  //var var_idposte = $("#idPoste").val();
+  var var_tipoposte = $("#tipoPoste").val();
+  var var_alturaposte = $("#alturaPoste").val();
 
 /* implementar ajax para llamar a tu servico GetId*/
+
+          $.ajax({
+            url:"http://localhost/calculosElectricos/public/posteid",
+            method:"POST", //indico que quiero traer info de la BD
+            data:{get_id_poste:get_id_poste, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            dataType: "text",
+       
+            success:function(respuesta) //este es el json con toda la data
+            {
+              console.log(respuesta);
 
             filas = ""; //declarando una variable en Jscript
                         //dibujando el formulario en JS
@@ -61,7 +75,7 @@ function editarPoste(){
 
                 filas += '<label for="texto">Id Poste</label>';
     
-                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="">';
+                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">';
 
                 filas +='</div>';
 
@@ -84,9 +98,11 @@ function editarPoste(){
                 filas +='</div>';
                                              
               $("#form_editarPoste").html(filas); //llamo a la variable creada
+            }
+              });
+   }
 
-              };
-   
+
 function updatePoste(){
 
   var var_idposte = $("#idPoste").val();
