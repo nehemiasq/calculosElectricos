@@ -19,8 +19,7 @@ class MantPosteModel extends Model
 
     public function insertarPosteModel($data){
 
-    	return $this->db->table($this->table)->insert($data); 
-  
+    	return $this->db->table($this->table)->insert($data);   
 
     }
     public function actualizarPosteModel($data, $id){
@@ -32,4 +31,6 @@ class MantPosteModel extends Model
       $builder->update($data);
 
     }
+
+    
 }
