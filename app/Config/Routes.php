@@ -44,6 +44,7 @@ $routes->post('estadoproyecto', 'controllerServicePrincipal::estadoProyecto');
 //uno es el nombre de servicio y el otro el controlador de servicio
 
 $routes->get('listapostes', 'controllerServiceMantPoste::Get');
+$routes->post('posteid', 'controllerServiceMantPoste::GetId');
 $routes->post('nuevoposte', 'controllerServiceMantPoste::insertarPoste');
 $routes->post('actualizarposte', 'controllerServiceMantPoste::ping');
 $routes->post('eliminarposte', 'controllerServiceMantPoste::eliminarPoste');
