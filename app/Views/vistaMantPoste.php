@@ -83,38 +83,6 @@ function listarPostes(){
           });
 }
 
-function editarPoste(){
-  var var_idposte = $("#idPoste").val();
-  var var_tipoposte = $("#tipoPoste").val();
-  var var_alturaposte = $("#alturaPoste").val();
-
-
-        $.ajax({
-            url:"http://localhost/calculosElectricos/public/posteid",
-            method:"GET", //Envía la data
-            data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
-            dataType: "text",
-           
-            success:function(respuesta) //este es el json con toda la data que responde la confirmación
-            {
-              console.log(respuesta);
-              
-              $("#idPoste").val(""); //dejando campos en blanco luego de guardar
-              $("#tipoPoste").val("");
-              $("#alturaPoste").val("");
-              
-              alert("inserción correcta!!");
-
-              },
-
-              error:function() //este es el json con toda la data que responde la confirmación
-            {
-              console.log("error");
-              alert("error!!");
-
-              }
-          });
-}
 
 function eliminarPoste(param_idPoste){
 
