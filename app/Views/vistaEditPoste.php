@@ -50,32 +50,36 @@ editarPoste(); //Creo mi método
 
 function editarPoste(){
 
- //var get_id_poste =  $("#get_id_poste").val();
-  var var_idposte = $("#idPoste").val();
+ var get_id_poste =  $("#get_id_poste").val();
+  //var var_idposte = $("#idPoste").val();
   var var_tipoposte = $("#tipoPoste").val();
   var var_alturaposte = $("#alturaPoste").val();
 
+  //alert (var_idposte);
  /* implementar ajax para llamar a tu servico GetId*/
 
           $.ajax({
             url:"http://localhost/calculosElectricos/public/posteid",
             method:"POST", //indico que quiero traer info de la BD
-            //data:{get_id_poste:get_id_poste, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
-            data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            data:{idPoste:get_id_poste},
+            //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
             dataType: "text",
        
-            success:function(respuesta) //este es el json con toda la data
+            success:function(item) //este es el json con toda la data
             {
-              console.log(respuesta);
+               filas = "";
+              console.log(item);
+              console(item.id_poste);
+              
 
-            filas = ""; //declarando una variable en Jscript
+            //declarando una variable en Jscript
                         //dibujando el formulario en JS
 
                 filas += '<div class="form-group">';
 
                 filas += '<label for="texto">Id Poste</label>';
     
-                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="">';
 
                 filas +='</div>';
 
@@ -96,7 +100,8 @@ function editarPoste(){
                 filas += '<input id="alturaPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">';
 
                 filas +='</div>';
-                                             
+                 
+                                     
               $("#form_editarPoste").html(filas); //llamo a la variable creada
             }
               });
