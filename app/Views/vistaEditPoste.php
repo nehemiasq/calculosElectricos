@@ -12,10 +12,10 @@
     <div class="contenedor">
                 
 <center><h2>EDITAR POSTE</h2></center>
-  <input type="text" id="get_id_poste" value="<?php echo $_GET["id"]; ?>" hidden> </input>
+  <input type="text" id="get_id_poste" value="<?php echo $_GET["id"]; ?>"> </input>
   <center>
     <div id="form_editarPoste"></div>
-  <!--<div class="form-group">
+  <!--<div class="form-group"> código hidden=> permite ocultar
     <label for="texto">Id Poste</label>
     <input id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">
   </div>
@@ -33,7 +33,7 @@
   <button class="btn btn-primary" onclick="updatePoste()">Modificar</button>
 
   <a href="<?php //echo base_url()?>/public/ControllerPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>-->
-
+  
   <button class="btn btn-primary" onclick="updatePoste()">Modificar</button>
 
   <a href="<?php echo base_url()?>/public/ControllerPoste" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
@@ -50,18 +50,18 @@ editarPoste(); //Creo mi método
 
 function editarPoste(){
 
- var get_id_poste =  $("#get_id_poste").val();
-  //var var_idposte = $("#idPoste").val();
+ //var get_id_poste =  $("#get_id_poste").val();
+  var var_idposte = $("#idPoste").val();
   var var_tipoposte = $("#tipoPoste").val();
   var var_alturaposte = $("#alturaPoste").val();
 
-/* implementar ajax para llamar a tu servico GetId*/
+ /* implementar ajax para llamar a tu servico GetId*/
 
           $.ajax({
             url:"http://localhost/calculosElectricos/public/posteid",
             method:"POST", //indico que quiero traer info de la BD
-            data:{get_id_poste:get_id_poste, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
-            //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            //data:{get_id_poste:get_id_poste, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
             dataType: "text",
        
             success:function(respuesta) //este es el json con toda la data
