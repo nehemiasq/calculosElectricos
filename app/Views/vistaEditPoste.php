@@ -63,23 +63,24 @@ function editarPoste(){
             method:"POST", //indico que quiero traer info de la BD
             data:{idPoste:get_id_poste},
             //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
-            dataType: "text",
+            dataType: "json",
        
             success:function(item) //este es el json con toda la data
             {
                filas = "";
               console.log(item);
-              console(item.id_poste);
+              console.log(item.id_poste);
               
 
             //declarando una variable en Jscript
                         //dibujando el formulario en JS
 
+              
                 filas += '<div class="form-group">';
 
                 filas += '<label for="texto">Id Poste</label>';
     
-                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="">';
+                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.id_poste+'">';
 
                 filas +='</div>';
 
@@ -88,7 +89,7 @@ function editarPoste(){
 
                 filas += '<label for="texto">Tipo</label>';
     
-                filas += '<input id="tipoPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input id="tipoPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.tipo_poste+'"> ';
 
                 filas +='</div>';
 
@@ -97,7 +98,7 @@ function editarPoste(){
 
                 filas += '<label for="texto">Altura</label>';
     
-                filas += '<input id="alturaPoste" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input id="alturaPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.altura_poste+'">';
 
                 filas +='</div>';
                  
