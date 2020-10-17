@@ -96,7 +96,7 @@ function editarCable(){
 
                 filas +='</div>';
                                              
-              $("#form_editCable").html(filas); //llamo a la variable creada
+              $("#form_editCable").html(filas); //llamo a la variable que he creado
 
               }
 
