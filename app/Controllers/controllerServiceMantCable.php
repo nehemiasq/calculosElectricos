@@ -17,6 +17,12 @@ class controllerServiceMantCable extends ResourceController
     	return $this->respond($this->model->findAll());
     }
 
+    public function GetId() //Funcion para editar cable
+    {
+        $idCable = $this->request->getPost('idCable'); 
+        return $this->respond($this->model->find($idCable));
+    }
+
     public function insertarCable()
     {   
         $idCable = $this->request->getPost('idCable'); 
