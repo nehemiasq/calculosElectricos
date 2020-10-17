@@ -80,9 +80,9 @@
 
   <button class="btn btn-primary" onclick="insertarProyecto()">Guardar</button> <!--el boton llama la funcion creada-->
 
-  <button type="submit" class="btn btn-primary">Nuevo</button>
-  <!--
+  <!--<button type="submit" class="btn btn-primary">Nuevo</button>  
   <button type="submit" class="btn btn-primary">Menu Principal</button>-->
+  
   <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 </center>
 
