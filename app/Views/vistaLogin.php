@@ -28,9 +28,9 @@
   </div>
 
   <br>
-  <button class="btn btn-primary" onclick="guardarCable()">Ingresar</button>
+  <!--<button class="btn btn-primary" onclick="guardarCable()">Ingresar</button>-->
 
-  <!--<a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Ingresar</a>-->
+  <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Ingresar</a>
 
 </center>
 
