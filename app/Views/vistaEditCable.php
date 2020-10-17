@@ -14,9 +14,9 @@
 <center><h2>EDITAR CABLE</h2></center>
   
   <center>
-<input type="text" id="get_id_cable" value="<?php echo $_GET["id"]; ?>"> </input>
+<input type="text" id="get_id_cable" value="<?php echo $_GET["id"]; ?>" hidden> </input>
     <div id="form_editCable"></div> <!--Varible creada para el form-->
-  <!--<div class="form-group">
+  <!--<div class="form-group">   código hidden=> permite ocultar
     <label for="texto">Id Cable</label>
     <input id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control">
   </div>
@@ -47,6 +47,25 @@
 editarCable(); //Creo mi método
 
 function editarCable(){
+
+  var get_id_cable = $("#get_id_cable").val();
+  //var var_idcable = $("#idCable").val();
+  var var_tirocable = $("#tiroCable").val();
+  var var_pesocable = $("#pesoCable").val();
+
+
+           $.ajax({
+            url:"http://localhost/calculosElectricos/public/cableid",
+            method:"POST", //indico que quiero traer info de la BD
+            data:{idCable:get_id_cable},
+            //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            dataType: "json",
+       
+            success:function(item) //este es el json con toda la data
+            {
+               filas = "";
+              console.log(item);
+              console.log(item.id_cable);
                
             filas = ""; //declarando una variable en Jscript
                         //dibujando el formulario en JS
@@ -55,7 +74,7 @@ function editarCable(){
 
                 filas += '<label for="texto">Id Cable</label>';
     
-                filas += '<input id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input readonly id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.id_cable+'">'; //readonly, campo no editable
 
                 filas +='</div>';
 
@@ -64,7 +83,7 @@ function editarCable(){
 
                 filas += '<label for="texto">Tiro de rotura</label>';
     
-                filas += '<input id="tiroCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input id="tiroCable" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.tiro_cable+'">';
 
                 filas +='</div>';
 
@@ -73,13 +92,16 @@ function editarCable(){
 
                 filas += '<label for="texto">Peso Cable</label>';
     
-                filas += '<input id="pesoCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+                filas += '<input id="pesoCable" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.peso_cable+'">';
 
                 filas +='</div>';
                                              
               $("#form_editCable").html(filas); //llamo a la variable creada
 
-              };
+              }
+
+              });
+   }
          
 
 function updateCable(){
@@ -97,9 +119,10 @@ function updateCable(){
             {
               console.log(respuesta);
               
-              $("#idCable").val(""); //dejando campos en blanco luego de guardar
-              $("#tiroCable").val("");
-              $("#pesoCable").val("");
+              //$("#idCable").val(""); //dejando campos en blanco luego de guardar
+              $("#idCable").val(); //dejando datos en el campo
+              $("#tiroCable").val();
+              $("#pesoCable").val();
               alert("actualización correcta!!");
 
               },
