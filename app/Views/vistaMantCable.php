@@ -48,6 +48,7 @@
 listarCables(); //Creo mi método
 
 function listarCables(){
+        
         $.ajax({
             url:"http://localhost/calculosElectricos/public/listacables",
             method:"GET", //indico que quiero traer info de la BD
