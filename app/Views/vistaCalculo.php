@@ -39,7 +39,7 @@
 
   <div class="form-group">
     <label for="text">Profundidad enterrada (mts):</label>
-    <input id="posteEnterrado" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
+    <input readonly id="posteEnterrado" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
   </div>
   <label for="texto">Tiro horizontal cable conductor:</label>
 
@@ -51,12 +51,12 @@
       </select>
 <div class="form-group">
     <label for="text">Tiro instalación (kg):</label>
-    <input id="instalacion" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
+    <input readonly id="instalacion" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
   </div>
 
 <div class="form-group">
     <label for="text">Parámetro Catenaria (mts):</label>
-    <input id="catenaria" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
+    <input readonly id="catenaria" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
   </div>
 
 <div class="form-group">
@@ -73,7 +73,7 @@
 
 <div class="form-group">
     <label for="text">Longitud total catenaria (mts):</label>
-    <input id="longitud" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
+    <input readonly id="longitud" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
   </div>
 
   <button class="btn btn-primary" onclick="calculo()">Calcular</button>
@@ -82,7 +82,7 @@
 
   <!--<button type="submit" class="btn btn-primary">Nuevo</button>  
   <button type="submit" class="btn btn-primary">Menu Principal</button>-->
-  
+
   <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 </center>
 
