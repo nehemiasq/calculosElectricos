@@ -12,7 +12,7 @@
     <div class="contenedor">
                 
 <center><h2>EDITAR POSTE</h2></center>
-  <input type="text" id="get_id_poste" value="<?php echo $_GET["id"]; ?>"> </input>
+  <input type="text" id="get_id_poste" value="<?php echo $_GET["id"]; ?>" hidden> </input>
   <center>
     <div id="form_editarPoste"></div>
   <!--<div class="form-group"> código hidden=> permite ocultar
@@ -71,7 +71,6 @@ function editarPoste(){
               console.log(item);
               console.log(item.id_poste);
               
-
             //declarando una variable en Jscript
                         //dibujando el formulario en JS
 
@@ -80,7 +79,7 @@ function editarPoste(){
 
                 filas += '<label for="texto">Id Poste</label>';
     
-                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.id_poste+'">';
+                filas += '<input readonly id="idPoste" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item.id_poste+'">'; //readonly, campo no editable
 
                 filas +='</div>';
 
@@ -125,9 +124,10 @@ function updatePoste(){
             {
               console.log(respuesta);
               
-              $("#idPoste").val(""); //dejando campos en blanco luego de guardar
-              $("#tipoPoste").val("");
-              $("#alturaPoste").val("");
+              //$("#idPoste").val(""); //dejando campos en blanco luego de guardar
+              $("#idPoste").val(); //dejando los datos en los campos
+              $("#tipoPoste").val();
+              $("#alturaPoste").val();
               
               alert("actualización correcta!!");
               },
