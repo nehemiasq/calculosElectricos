@@ -51,6 +51,7 @@ $routes->post('eliminarposte', 'controllerServiceMantPoste::eliminarPoste');
 //uno es el nombre de servicio y el otro el controlador de servicio
 
 $routes->get('listacables', 'controllerServiceMantCable::Get');
+$routes->post('cableid', 'controllerServiceMantCable::GetId');
 $routes->post('nuevocable', 'controllerServiceMantCable::insertarCable');
 $routes->post('actualizarcable', 'controllerServiceMantCable::ping');
 $routes->post('eliminarcable', 'controllerServiceMantCable::eliminarCable');
