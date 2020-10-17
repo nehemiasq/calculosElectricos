@@ -8,11 +8,13 @@
 
 
 </head>
-<body>
-    <div class="contenedor">
-                
+<body> 
+ 
+  <!--<img src="img/fondo.jpg">-->
+
 <center><h2>Bienvenido al Sistema de Gestión de Proyectos ABS INGENIEROS</h2></center>
   
+
   <br>
   <br>
   <center>
