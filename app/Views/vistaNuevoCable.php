@@ -31,7 +31,8 @@
 
   <button class="btn btn-primary" onclick="guardarCable()">Guardar</button>
 
-  <button type="submit" class="btn btn-primary">Nuevo</button>
+  <!--<button type="submit" class="btn btn-primary">Nuevo</button>-->
+
   <a href="<?php echo base_url()?>/public/ControllerCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
 </center>
 
