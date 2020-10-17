@@ -108,7 +108,7 @@ function listarProyectos(){
 
                 //filas += '<td>'+item.estado_proyecto+'</td>';
                 if (item.estado_proyecto <2){
-                 filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>'; 
+                 filas += '<td><button class="btn btn-info" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>'; 
 
                 }else{
                   filas += '<td><button class="btn btn-primary" disabled onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
