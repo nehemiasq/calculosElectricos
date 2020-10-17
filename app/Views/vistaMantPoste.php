@@ -70,7 +70,7 @@ function listarPostes(){
 
           /*      filas += '<td><button class="btn btn-primary" onclick="editarPoste('+item.id_poste+')">Editar</button></td>';
 */
-                filas += '<td><a href="http://localhost/calculosElectricos/public/ControllerFormEditPoste?id='+item.id_poste+'" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a></td>';
+                filas += '<td><a href="http://localhost/calculosElectricos/public/ControllerFormEditPoste?id='+item.id_poste+'" class="btn btn-warning" name="btn_buscar" value="Mantenimiento Poste">Editar</a></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarPoste('+item.id_poste+')">Eliminar</button></td>';
 

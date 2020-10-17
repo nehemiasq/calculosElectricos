@@ -68,7 +68,7 @@ function listarCables(){
                 
                 filas += '<td>'+item.peso_cable+'</td>';
 
-                filas += '<td><a href="http://localhost/calculosElectricos/public/ControllerFormEditCable?id='+item.id_cable+'" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Editar</a></td>';
+                filas += '<td><a href="http://localhost/calculosElectricos/public/ControllerFormEditCable?id='+item.id_cable+'" class="btn btn-warning" name="btn_buscar" value="Mantenimiento Poste">Editar</a></td>';
 
                 filas += '<td><button class="btn btn-primary" onclick="eliminarCable('+item.id_cable+')">Eliminar</button></td>';
 
