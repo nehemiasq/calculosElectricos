@@ -111,6 +111,8 @@ function listarCboTipoPoste(){
                 $.each(respuesta,function(key,item){
 
                //lista += '<select>'; //estructura del combito
+                //String sql = "SELECT DISTINCT "'+item.tipo_poste+'" FROM poste";
+
                 lista += '<option value="'+item.tipo_poste+'">'+item.tipo_poste+'</option>'; //solo llamo al tipo poste
                 
                 });
