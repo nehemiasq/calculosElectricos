@@ -14,7 +14,7 @@
 <center><h2>EDITAR CABLE</h2></center>
   
   <center>
-
+<input type="text" id="get_id_cable" value="<?php echo $_GET["id"]; ?>"> </input>
     <div id="form_editCable"></div> <!--Varible creada para el form-->
   <!--<div class="form-group">
     <label for="texto">Id Cable</label>
