@@ -32,5 +32,14 @@ class MantPosteModel extends Model
 
     }
 
+    public function aumentarId(){
+       $db = \Config\Database::connect();
+
+        $query = $db->query('SELECT id_poste FROM poste ORDER BY id_poste DESC LIMIT 1');
+        $row   = $query->getRowArray();
+        return $row['id_poste'];
+
+    }
+
     
 }
