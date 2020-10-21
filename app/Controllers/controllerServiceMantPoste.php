@@ -23,6 +23,14 @@ class controllerServiceMantPoste extends ResourceController
         return $this->respond($this->model->find($idPoste));
     }
 
+    public function aumentarId() //Funcion para autoincrementable
+    {
+    
+    return $this->model->aumentarId();
+
+
+    }
+
     public function insertarPoste()
     {   
         $idPoste = $this->request->getPost('idPoste'); 
