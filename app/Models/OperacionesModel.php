@@ -33,5 +33,14 @@ class OperacionesModel extends Model
 
     }
 
+    public function incrementarProyecto(){
+       $db = \Config\Database::connect();
+
+        $query = $db->query('SELECT id_operaciones FROM operaciones ORDER BY id_operaciones DESC LIMIT 1');
+        $row   = $query->getRowArray();
+        return $row['id_operaciones'];
+
+    }
+
     
 }
