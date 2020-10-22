@@ -17,6 +17,11 @@ class controllerServicePrincipal extends ResourceController
     	return $this->respond($this->model->findAll());
     }
 
+    public function incrementarProyecto() //Funcion para autoincrementable
+    {    
+    return $this->model->incrementarProyecto();
+    }
+
      public function insertarProyecto()
     {   
         $idOperaciones = $this->request->getPost('idOperaciones'); 
