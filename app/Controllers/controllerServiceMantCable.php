@@ -23,6 +23,11 @@ class controllerServiceMantCable extends ResourceController
         return $this->respond($this->model->find($idCable));
     }
 
+    public function incrementarId() //Funcion para autoincrementable
+    {    
+    return $this->model->incrementarId();
+    }
+
     public function insertarCable()
     {   
         $idCable = $this->request->getPost('idCable'); 
