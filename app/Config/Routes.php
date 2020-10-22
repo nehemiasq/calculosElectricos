@@ -39,7 +39,8 @@ $routes->post('usuariologin', 'controllerServiceLogin::crearUsuario');
 $routes->get('listaproyectos', 'controllerServicePrincipal::pruebaGet');
 $routes->post('nuevoproyecto', 'controllerServicePrincipal::insertarProyecto'); 
 $routes->post('eliminarproyecto', 'controllerServicePrincipal::eliminarProyecto'); 
-$routes->post('estadoproyecto', 'controllerServicePrincipal::estadoProyecto'); 
+$routes->post('estadoproyecto', 'controllerServicePrincipal::estadoProyecto');
+$routes->post('incrementarproyecto', 'controllerServicePrincipal::incrementarProyecto'); 
 
 //uno es el nombre de servicio y el otro el controlador de servicio
 
