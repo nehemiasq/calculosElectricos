@@ -33,4 +33,13 @@ class MantCableModel extends Model
 
     }
 
+    public function incrementarId(){
+       $db = \Config\Database::connect();
+
+        $query = $db->query('SELECT id_cable FROM cable ORDER BY id_cable DESC LIMIT 1');
+        $row   = $query->getRowArray();
+        return $row['id_cable'];
+
+    }
+
 }
