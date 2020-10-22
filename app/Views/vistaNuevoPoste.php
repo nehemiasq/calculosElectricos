@@ -66,8 +66,9 @@ function aumentarPoste(){
        
             success:function(item) //este es el json con toda la data
             { 
-              var id = item;
-              id = id + 1;
+              //var id = item;
+              //id = id + 1;
+             
 
               filas = "";  
               
