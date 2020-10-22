@@ -10,13 +10,16 @@
 <body>
     <div class="contenedor">
     	<center><h2>CÁLCULOS MECÁNICOS DE REDES ELÉCTRICAS</h2></center>
-   <center>
+<center>
+  <!--<div id="form_aumentarProyecto"></div>   <div class="form-group col-md-6">-->
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div id="form_aumentarProyecto">
+    <!--<div class="form-group">
       <label for="texto">Código de proyecto</label>
-      <input id="idOperaciones" style="width : 150px; heigth : 150px" class="form-control" id="texto" placeholder="">
+      <input readonly id="idOperaciones" style="width : 150px; heigth : 150px" class="form-control" id="texto" placeholder="">-->
     </div>
-    <div class="form-group col-md-6">
+
+    <div class="form-group">
       <label for="texto">Nombre de proyecto</label>
       <input id="nomProyecto" style="width : 150px; heigth : 150px" class="form-control" id="texto" placeholder="">
     </div>
@@ -27,7 +30,7 @@
       <select id='cboTipoPoste' style="width : 180px; heigth : 180px" class="form-control">
       <option selected>Seleccione poste</option>
        
-      </select>
+      </select></div>
 
      <div class="form-group">
       <label for="inputState">Altura Poste (mts):</label>
@@ -35,7 +38,7 @@
         <!--onchange="prueba()"-Me va servir para mostrar un dato de un combo a un campo----->
         <option selected>Seleccione altura</option>
        
-      </select>
+      </select></div>
 
   <div class="form-group">
     <label for="text">Profundidad enterrada (mts):</label>
@@ -48,7 +51,8 @@
       <select id="cboTiroCable" style="width : 180px; heigth : 180px" class="form-control">
         <option selected>Seleccione tiro</option>
       
-      </select>
+      </select></div>
+
 <div class="form-group">
     <label for="text">Tiro instalación (kg):</label>
     <input readonly id="instalacion" style="width : 180px; heigth : 180px" class="form-control" id="texto" placeholder="">
@@ -64,7 +68,7 @@
       <select id="cboPesoCable" style="width : 180px; heigth : 180px" class="form-control">
         <option selected>Seleccione peso</option>
        
-      </select>
+      </select></div>
 
 <div class="form-group">
     <label for="text">Vano horizontal (mts):</label>
@@ -84,6 +88,7 @@
   <button type="submit" class="btn btn-primary">Menu Principal</button>-->
 
   <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
+
 </center>
 
 </body>
@@ -92,10 +97,51 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 
+aumentarProyecto(); //Creo mi método
+
 listarCboTipoPoste(); //Creo mi método (funciones)
 listarCboAlturaPoste();
 listarCboTiroCable();
 listarCboPesoCable();
+
+function aumentarProyecto(){
+
+           $.ajax({
+            url:"http://localhost/calculosElectricos/public/incrementarproyecto",
+            method:"POST", //indico que quiero traer info de la BD
+            //data:{idCable:get_id_cable},
+            //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            dataType: "text",
+       
+            success:function(item) //este es el json con toda la data
+            {
+                //var pointNum = parseFloat(text); //string y convertirlo a un número con decimales
+              //var numericaInt = parseInt(cadena); string y convertirlo a entero
+
+             var item = parseInt(item); //convirtiento de string a número
+
+              item = item + 1;  //autoincrementable
+
+            filas = ""; //declarando una variable en Jscript
+                        //dibujando el formulario en JS
+
+                filas += '<div class="form-group">';
+
+                filas += '<label for="texto">Código de proyecto</label>';
+    
+                filas += '<input readonly id="idOperaciones" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item+'">'; //readonly, campo no editable
+
+                //<input readonly id="idOperaciones" style="width : 150px; heigth : 150px" class="form-control" id="texto" placeholder="">
+
+                filas +='</div>';
+                                             
+              $("#form_aumentarProyecto").html(filas); //llamo a la variable que he creado
+
+              }
+
+              });
+   }
+
 
 function listarCboTipoPoste(){
         $.ajax({
