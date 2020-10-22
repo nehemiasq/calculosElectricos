@@ -56,6 +56,7 @@ $routes->post('cableid', 'controllerServiceMantCable::GetId');
 $routes->post('nuevocable', 'controllerServiceMantCable::insertarCable');
 $routes->post('actualizarcable', 'controllerServiceMantCable::ping');
 $routes->post('eliminarcable', 'controllerServiceMantCable::eliminarCable');
+$routes->post('incrementarid', 'controllerServiceMantCable::incrementarId');
 
 //uno es el nombre de servicio y el otro el controlador (funcion creada) de servicio
 
