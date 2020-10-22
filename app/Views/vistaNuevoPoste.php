@@ -51,12 +51,6 @@ aumentarPoste(); //Creo mi método que va iniciar
 
 function aumentarPoste(){
 
- /*var get_id_poste =  $("#get_id_poste").val();
-  //var var_idposte = $("#idPoste").val();
-  var var_tipoposte = $("#tipoPoste").val();
-  var var_alturaposte = $("#alturaPoste").val();*/
-
-  //alert (var_idposte);
           $.ajax({
             url:"http://localhost/calculosElectricos/public/aumentarid",
             method:"POST", //indico que quiero traer info de la BD
@@ -66,10 +60,14 @@ function aumentarPoste(){
        
             success:function(item) //este es el json con toda la data
             { 
-              //var id = item;
-              //id = id + 1;
-             
+              
+              //var pointNum = parseFloat(text); //string y convertirlo a un número con decimales
+              //var numericaInt = parseInt(cadena); string y convertirlo a entero
 
+             var item = parseInt(item); //convirtiento de string a número
+
+              item = item + 1;
+              
               filas = "";  
               
             //declarando una variable en Jscript
