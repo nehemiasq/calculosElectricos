@@ -48,12 +48,6 @@ aumentarCable(); //Creo mi método
 
 function aumentarCable(){
 
-  /*var get_id_cable = $("#get_id_cable").val();
-  //var var_idcable = $("#idCable").val();
-  var var_tirocable = $("#tiroCable").val();
-  var var_pesocable = $("#pesoCable").val();*/
-
-
            $.ajax({
             url:"http://localhost/calculosElectricos/public/incrementarid",
             method:"POST", //indico que quiero traer info de la BD
@@ -63,10 +57,13 @@ function aumentarCable(){
        
             success:function(item) //este es el json con toda la data
             {
-               filas = "";
-              //console.log(item);
-              //console.log(item.id_cable);
-               
+                //var pointNum = parseFloat(text); //string y convertirlo a un número con decimales
+              //var numericaInt = parseInt(cadena); string y convertirlo a entero
+
+             var item = parseInt(item); //convirtiento de string a número
+
+              item = item + 1;
+
             filas = ""; //declarando una variable en Jscript
                         //dibujando el formulario en JS
 
