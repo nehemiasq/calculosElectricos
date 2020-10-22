@@ -13,8 +13,8 @@
                 
 <center><h2>NUEVO CABLE</h2></center>
   
-  <center>
-  <div class="form-group">
+  <center><div id="form_aumentarCable"></div>
+  <!--<div class="form-group">
     <label for="texto">Id Cable</label>
     <input id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control" placeholder="">
   </div>
@@ -27,7 +27,7 @@
   <div class="form-group">
     <label for="texto">Peso cable</label>
     <input id="pesoCable" type="text" style="width : 150px; heigth : 150px" class="form-control" placeholder="Peso cable">
-  </div>
+  </div>-->
 
   <button class="btn btn-primary" onclick="guardarCable()">Guardar</button>
 
@@ -42,6 +42,67 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
+
+
+aumentarCable(); //Creo mi método
+
+function aumentarCable(){
+
+  /*var get_id_cable = $("#get_id_cable").val();
+  //var var_idcable = $("#idCable").val();
+  var var_tirocable = $("#tiroCable").val();
+  var var_pesocable = $("#pesoCable").val();*/
+
+
+           $.ajax({
+            url:"http://localhost/calculosElectricos/public/incrementarid",
+            method:"POST", //indico que quiero traer info de la BD
+            //data:{idCable:get_id_cable},
+            //data:{idPoste:var_idposte, tipoPoste:var_tipoposte, alturaPoste:var_alturaposte},
+            dataType: "text",
+       
+            success:function(item) //este es el json con toda la data
+            {
+               filas = "";
+              //console.log(item);
+              //console.log(item.id_cable);
+               
+            filas = ""; //declarando una variable en Jscript
+                        //dibujando el formulario en JS
+
+                filas += '<div class="form-group">';
+
+                filas += '<label for="texto">Id Cable</label>';
+    
+                filas += '<input readonly id="idCable" type="text" style="width : 150px; heigth : 150px" class="form-control" value="'+item+'">'; //readonly, campo no editable
+
+                filas +='</div>';
+
+
+                filas += '<div class="form-group">';
+
+                filas += '<label for="texto">Tiro de rotura</label>';
+    
+                filas += '<input id="tiroCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+
+                filas +='</div>';
+
+
+                filas += '<div class="form-group">';
+
+                filas += '<label for="texto">Peso Cable</label>';
+    
+                filas += '<input id="pesoCable" type="text" style="width : 150px; heigth : 150px" class="form-control">';
+
+                filas +='</div>';
+                                             
+              $("#form_aumentarCable").html(filas); //llamo a la variable que he creado
+
+              }
+
+              });
+   }
+
 
 
 function guardarCable(){
