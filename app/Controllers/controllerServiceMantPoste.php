@@ -77,13 +77,5 @@ class controllerServiceMantPoste extends ResourceController
 
     }
 
-     /*public function listarId() //
-    {
-    
-    return $this->model->listarId($id);
-
-    }*/
-
-    // load library  
-    
+       
 }

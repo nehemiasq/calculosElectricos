@@ -27,9 +27,12 @@
                   <!--<button class="btn btn-primary" onclick="calculo()">Eliminar</button>-->
 
                   <input type="submit" class="btn" name="btn_buscar" value="Salir">
+
+                  <button onclick="exportTableToExcel('tblData')">Exportar en excel</button>
+                  <button onclick="printPdf()">Exportar en pdf</button>
              
             </div>
-            <table class="table table-striped">
+            <table id="tblData" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">ID Proyecto</th>
@@ -38,7 +41,7 @@
       <th scope="col">Altura (mts)</th>
       <th scope="col">Poste enterrado (mts)</th>
       <th scope="col">Tiro Rotura (kg)</th>
-      <th scope="col">Tiro Instalación (kg)</th>
+      <th scope="col">Tiro Instalacion (kg)</th>
       <th scope="col">Catenaria (mts)</th>
       <th scope="col">Peso (kg/m)</th>
       <th scope="col">Vano (mts)</th>
@@ -54,6 +57,7 @@
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
 <script type="text/javascript">
 
 listarProyectos(); //Cre mi método
@@ -128,6 +132,37 @@ function listarProyectos(){
 
 }
       
+    function exportTableToExcel(tableID, filename = ''){ //código para exportar en excel
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+}
+
       function estadoProyecto(param_id, param_estado){
 
       var var_idOperaciones = param_id;
@@ -202,6 +237,27 @@ function listarProyectos(){
 
               }
           });
+
+        }
+
+        function printPdf()
+        {
+          var doc = new jsPDF({
+              orientation: 'landscape'
+            });
+          var elementHTML = $('#tblData').html();
+          var specialElementHandlers = {
+          '#elementH': function (element, renderer) {
+          return true;
+            }
+          };
+          doc.fromHTML(elementHTML, 15, 15, {
+          'width': 170,
+          'elementHandlers': specialElementHandlers
+            });
+
+          // Save the PDF
+          doc.save('sample-document.pdf');
 
         }
 
