@@ -76,4 +76,5 @@ class controllerServiceMantCable extends ResourceController
 
     }
 
+   
 }

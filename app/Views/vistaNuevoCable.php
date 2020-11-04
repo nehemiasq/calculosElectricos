@@ -62,7 +62,7 @@ function aumentarCable(){
 
              var item = parseInt(item); //convirtiento de string a número
 
-              item = item + 1; //autoincrementable
+              item = item + 1; //autoincrementablegra
 
             filas = ""; //declarando una variable en Jscript
                         //dibujando el formulario en JS
