@@ -41,19 +41,5 @@ class MantPosteModel extends Model
 
     }
 
-    /*public function listarId()  {
-      $db = \Config\Database::connect();
-      $builder = $db->table('poste');
-
-      $builder->where('id_poste', $id);
-      
-      //->select('id_poste, tipo_poste, altura_poste');
-      
-    //$query = $db->query('SELECT id_poste, tipo_poste, altura_poste FROM poste')
-      //->select('id_poste, tipo_poste, altura_poste)
-      /*->get()
-      ->result();
-  }*/
-
     
 }
