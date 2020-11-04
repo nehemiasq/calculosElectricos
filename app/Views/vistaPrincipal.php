@@ -28,25 +28,27 @@
 
                   <input type="submit" class="btn" name="btn_buscar" value="Salir">
 
-                  <button onclick="exportTableToExcel('tblData')">Exportar en excel</button>
-                  <button onclick="printPdf()">Exportar en pdf</button>
+                  <button onclick="exportTableToExcel('tblData')">Exportar excel</button>
+                  
+                  <button onclick="demoFromHTML()">Exportar pdf</button>
              
             </div>
+            <div id="customers" name="customers">
             <table id="tblData" class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">ID Proyecto</th>
-      <th scope="col">Nombre Proyecto</th>
-      <th scope="col">Tipo Poste</th>
-      <th scope="col">Altura (mts)</th>
-      <th scope="col">Poste enterrado (mts)</th>
-      <th scope="col">Tiro Rotura (kg)</th>
-      <th scope="col">Tiro Instalacion (kg)</th>
-      <th scope="col">Catenaria (mts)</th>
-      <th scope="col">Peso (kg/m)</th>
-      <th scope="col">Vano (mts)</th>
-      <th scope="col">Longitud Total (mts)</th>
-      <th scope="col">Estado de proyecto</th>
+      <th scope="col" width="17%">ID Proyecto</th>
+      <th scope="col" width="28%">Nombre Proyecto</th>
+      <th scope="col" width="18%">Tipo Poste</th>
+      <th scope="col" width="25%">Altura (mts)</th>
+      <th scope="col" width="20%">Poste enterrado (mts)</th>
+      <th scope="col" width="20%">Tiro Rotura (kg)</th>
+      <th scope="col" width="20%">Tiro Instalacion (kg)</th>
+      <th scope="col" width="20%">Catenaria (mts)</th>
+      <th scope="col" width="20%">Peso (kg/m)</th>
+      <th scope="col" width="20%">Vano (mts)</th>
+      <th scope="col" width="20%">Longitud Total (mts)</th>
+      <th scope="col" width="20%">Estado de proyecto</th>
     </tr>
   </thead>
   <tbody id="tabla_proyecto"> <!--creando una variable para mi tabla-->
@@ -54,10 +56,15 @@
   </tbody>
 
 </table>
+</div>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+<script type="text/javascript" src="../assets/js/jspdf.debug.js"></script>
+
+
 <script type="text/javascript">
 
 listarProyectos(); //Cre mi método
@@ -240,25 +247,46 @@ function listarProyectos(){
 
         }
 
-        function printPdf()
-        {
-          var doc = new jsPDF({
-              orientation: 'landscape'
-            });
-          var elementHTML = $('#tblData').html();
-          var specialElementHandlers = {
-          '#elementH': function (element, renderer) {
-          return true;
-            }
-          };
-          doc.fromHTML(elementHTML, 15, 15, {
-          'width': 170,
-          'elementHandlers': specialElementHandlers
-            });
 
-          // Save the PDF
-          doc.save('sample-document.pdf');
 
-        }
+        function demoFromHTML() {
+               var pdf = new jsPDF('l', 'pt', 'a3');
+               // source can be HTML-formatted string, or a reference
+               // to an actual DOM element from which the text will be scraped.
+               source = $('#customers')[0];
+
+               // we support special element handlers. Register them with jQuery-style 
+               // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+               // There is no support for any other type of selectors 
+               // (class, of compound) at this time.
+               specialElementHandlers = {
+                   // element with id of "bypass" - jQuery style selector
+                   '#bypassme': function(element, renderer) {
+                       // true = "handled elsewhere, bypass text extraction"
+                       return true
+                   }
+               };
+               margins = {
+                   top: 80,
+                   bottom: 60,
+                   left: 100,
+                   width: 522
+               };
+               // all coords and widths are in jsPDF instance's declared units
+               // 'inches' in this case
+               pdf.fromHTML(
+                       source, // HTML string or DOM elem ref.
+                       margins.left, // x coord
+                       margins.top, {// y coord
+                           'width': margins.width, // max width of content on PDF
+                           'elementHandlers': specialElementHandlers
+                       },
+               function(dispose) {
+                   // dispose: object with X, Y of the last line add to the PDF 
+                   //          this allow the insertion of new lines after html
+                   pdf.save('Test.pdf');
+               }
+               , margins);
+           }
 
 </script>
