@@ -50,6 +50,8 @@ $routes->post('nuevoposte', 'controllerServiceMantPoste::insertarPoste');
 $routes->post('actualizarposte', 'controllerServiceMantPoste::ping');
 $routes->post('eliminarposte', 'controllerServiceMantPoste::eliminarPoste');
 $routes->post('aumentarid', 'controllerServiceMantPoste::aumentarId');
+
+//$routes->post('listar', 'controllerServiceMantPoste::listarId');
 //uno es el nombre de servicio y el otro el controlador de servicio
 
 $routes->get('listacables', 'controllerServiceMantCable::Get');
