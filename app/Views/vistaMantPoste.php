@@ -24,10 +24,12 @@
                 
                 <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 
+                <button onclick="exportTableToExcel('tblData')">Exportar excel</button>
+
                 <!--<a href="insert.php" class="btn btn__nuevo">Nuevo</a>-->
           </div>
 
-<table class="table table-striped">
+<table id="tblData" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Id Poste</th>
@@ -110,6 +112,37 @@ function eliminarPoste(param_idPoste){
           });
 
         }
+
+  function exportTableToExcel(tableID, filename = ''){ //código para exportar en excel
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+    // Specify file name
+    filename = filename?filename+'.xls':'CRUD_Poste.xls';
+    
+    // Create download link element
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+}
 
 
 </script>
