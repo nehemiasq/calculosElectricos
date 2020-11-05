@@ -41,7 +41,7 @@
       <th scope="col" width="28%">Nombre Proyecto</th>
       <th scope="col" width="18%">Tipo Poste</th>
       <th scope="col" width="25%">Altura (mts)</th>
-      <th scope="col" width="20%">Poste enterrado (mts)</th>
+      <th scope="col" width="30%">Poste enterrado (mts)</th>
       <th scope="col" width="20%">Tiro Rotura (kg)</th>
       <th scope="col" width="20%">Tiro Instalacion (kg)</th>
       <th scope="col" width="20%">Catenaria (mts)</th>
@@ -146,7 +146,7 @@ function listarProyectos(){
     var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
     
     // Specify file name
-    filename = filename?filename+'.xls':'excel_data.xls';
+    filename = filename?filename+'.xls':'Proyectos.xls';
     
     // Create download link element
     downloadLink = document.createElement("a");
@@ -284,7 +284,7 @@ function listarProyectos(){
                function(dispose) {
                    // dispose: object with X, Y of the last line add to the PDF 
                    //          this allow the insertion of new lines after html
-                   pdf.save('Test.pdf');
+                   pdf.save('Reporte.pdf');
                }
                , margins);
            }
