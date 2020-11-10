@@ -19,4 +19,10 @@ class controllerPrincipal extends BaseController {
 		
 		return view('vistaCalculo');
 	}
+
+	public function vistaGraficoPrincipal()
+	{
+		
+		return view('vistaGraficoPrincipal');
+	}
 }
