@@ -104,7 +104,7 @@ function listarPostes(){
         {
           label: "Poste",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-          data: [50,100,150,200]
+          data: [5,10,15,20]
         }
       ]
     },
