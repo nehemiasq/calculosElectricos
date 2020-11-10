@@ -46,10 +46,14 @@
   </tbody>
 </table>
 </div>
+
+<canvas id="bar-chart-horizontal" width="200" height="50"></canvas>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../assets/js/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script type="text/javascript">
 
 listarCables(); //Creo mi método
@@ -82,6 +86,29 @@ function listarCables(){
                 filas+= '</tr>';
                 });
               $("#tabla_MantCable").html(filas); //llamo al id creado de la tabla Cable
+
+              //código de gráfico
+             
+             new Chart(document.getElementById("bar-chart-horizontal"), {
+    type: 'horizontalBar',
+    data: {
+      labels: ["Rotura 255 kg.", "Rotura 300 kg.", "Rotura 428 kg.", "Rotura 685 kg.", "Rotura 1087 kg."],
+      datasets: [
+        {
+          label: "Rotura kg.",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [3,6,9,12,15]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'CABLES SELECCIONADOS SEGÚN TIRO DE ROTURA'
+      }
+    }
+});
 
               }
           });

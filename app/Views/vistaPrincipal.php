@@ -76,10 +76,6 @@
 listarProyectos(); //Cre mi método
 //grafico();
 
-
-
-
-
 function listarProyectos(){
   var arrayEstado = [];
   var contInci = 0;

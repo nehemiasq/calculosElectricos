@@ -46,15 +46,21 @@
   </tbody>
 </table>
 </div>
+
+<canvas id="bar-chart" width="200" height="50"></canvas>
+
 </html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script type="text/javascript" src="../assets/js/jspdf.debug.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 <script type="text/javascript">
 
 listarPostes(); //Creo mi método
+//graficoPoste();
+
 
 function listarPostes(){
         $.ajax({
@@ -86,6 +92,30 @@ function listarPostes(){
 
                 });
               $("#tabla_MantPoste").html(filas);
+
+
+              //código de gráfico 
+
+              new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Concreto BT", "Concreto MT", "Madera"],
+      datasets: [
+        {
+          label: "Poste",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+          data: [50,100,150,200]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Tipos de poste'
+      }
+    }
+});
 
               }
           });
