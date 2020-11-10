@@ -24,6 +24,8 @@
 
                 <a href="<?php echo base_url()?>/public/ControllerPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Menu Principal</a>
 
+                <a href="<?php echo base_url()?>/public/ControllerGraficoCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Ver gráfico</a>
+
                 <button onclick="exportTableToExcel('tblData')">Exportar excel</button>
                 <button onclick="demoFromHTML()">Exportar pdf</button>
 
