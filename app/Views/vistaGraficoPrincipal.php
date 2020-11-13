@@ -79,12 +79,10 @@
 mostrarGrafico();
 
 function mostrarGrafico(){
- 
   var arrayEstado = [];
   var contInci = 0;
   var contEncur = 0;
   var contfinal = 0;
-
         $.ajax({
             url:"http://localhost/calculosElectricos/public/listaproyectos",
             method:"GET", //indico que quiero traer info de la BD
@@ -95,31 +93,6 @@ function mostrarGrafico(){
 
               filas = ""; //declarando una variable en Jscript
                 $.each(respuesta,function(key,item){
-
-                /*filas += '<tr>';
-
-                filas += '<th scope="row">'+item.id_operaciones+'</th>';
-    
-                filas += '<td>'+item.nom_proyecto+'</td>';
-                
-                filas += '<td>'+item.tipo_poste+'</td>';
-
-                filas += '<td>'+item.altura_poste+'</td>';
-
-                filas += '<td>'+item.poste_enterrado+'</td>';
-
-                filas += '<td>'+item.tiro_cable+'</td>';
-
-                filas += '<td>'+item.tiro_instalacion+'</td>';
-
-                filas += '<td>'+item.param_catenaria+'</td>';
-
-                filas += '<td>'+item.peso_cable+'</td>';
-
-                filas += '<td>'+item.vano+'</td>';
-
-                filas += '<td>'+item.longitud+'</td>';*/
-
 
                 if (item.estado_proyecto ==0){  //indicando el estado según la BD,se muestra el enunciado
                   filas += '<td>Iniciado</td>';
@@ -135,23 +108,8 @@ function mostrarGrafico(){
                 }
 
 
-                //filas += '<td>'+item.estado_proyecto+'</td>';
-                /*if (item.estado_proyecto <2){
-                 filas += '<td><button class="btn btn-info" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>'; 
-
-                }else{
-                  filas += '<td><button class="btn btn-primary" disabled onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
-                }
-
-
-                //filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
-
-                filas += '<td><button class="btn btn-primary" onclick="eliminarProyecto('+item.id_operaciones+')">Eliminar</button></td>';
-               // filas += '<td><button class="btn btn-primary" onclick="text()">Eliminar</button></td>';
-                filas+= '</tr>';
+             
                 });
-              $("#tabla_proyecto").html(filas);*/
-
 
                 arrayEstado.push(contInci);
                 arrayEstado.push(contEncur);
@@ -178,110 +136,9 @@ function mostrarGrafico(){
 
               }
           });
-             
 
 }
 
 
-/*function listarProyectos(){
-  var arrayEstado = [];
-  var contInci = 0;
-  var contEncur = 0;
-  var contfinal = 0;
-        $.ajax({
-            url:"http://localhost/calculosElectricos/public/listaproyectos",
-            method:"GET", //indico que quiero traer info de la BD
-       
-            success:function(respuesta) //este es el json con toda la data
-            {
-              console.log(respuesta);
-
-              filas = ""; //declarando una variable en Jscript
-                $.each(respuesta,function(key,item){
-
-                filas += '<tr>';
-
-                filas += '<th scope="row">'+item.id_operaciones+'</th>';
-    
-                filas += '<td>'+item.nom_proyecto+'</td>';
-                
-                filas += '<td>'+item.tipo_poste+'</td>';
-
-                filas += '<td>'+item.altura_poste+'</td>';
-
-                filas += '<td>'+item.poste_enterrado+'</td>';
-
-                filas += '<td>'+item.tiro_cable+'</td>';
-
-                filas += '<td>'+item.tiro_instalacion+'</td>';
-
-                filas += '<td>'+item.param_catenaria+'</td>';
-
-                filas += '<td>'+item.peso_cable+'</td>';
-
-                filas += '<td>'+item.vano+'</td>';
-
-                filas += '<td>'+item.longitud+'</td>';
-
-
-                if (item.estado_proyecto ==0){  //indicando el estado según la BD,se muestra el enunciado
-                  filas += '<td>Iniciado</td>';
-                   contInci = contInci +1;
-
-                }else if(item.estado_proyecto ==1){
-                  filas += '<td>En curso</td>';
-                     contEncur = contEncur +1 ;
-
-                }else{
-                  filas += '<td>Finalizado</td>';
-                     contfinal = contfinal+1;
-                }
-
-
-                //filas += '<td>'+item.estado_proyecto+'</td>';
-                if (item.estado_proyecto <2){
-                 filas += '<td><button class="btn btn-info" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>'; 
-
-                }else{
-                  filas += '<td><button class="btn btn-primary" disabled onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
-                }
-
-
-                //filas += '<td><button class="btn btn-primary" onclick="estadoProyecto('+item.id_operaciones+', '+item.estado_proyecto+')">Proceso</button></td>';
-
-                filas += '<td><button class="btn btn-primary" onclick="eliminarProyecto('+item.id_operaciones+')">Eliminar</button></td>';
-               // filas += '<td><button class="btn btn-primary" onclick="text()">Eliminar</button></td>';
-                filas+= '</tr>';
-                });
-              $("#tabla_proyecto").html(filas);
-
-
-                arrayEstado.push(contInci);
-                arrayEstado.push(contEncur);
-                arrayEstado.push(contfinal);
-
-
-              new Chart(document.getElementById("pie-chart"), {
-              type: 'pie',
-              data: {
-                labels: ["Iniciado", "En curso", "Finalizado"],
-                datasets: [{
-                  label: "Population (millions)",
-                  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-                  data: arrayEstado
-                }]
-              },
-              options: {
-                title: {
-                  display: true,
-                  text: 'Seguimiento de proyectos ABS INGENIEROS'
-                }
-              }
-          });
-
-              }
-          });
-
-}*/
       
 </script>

@@ -61,7 +61,69 @@
 </div>
 
 
-<canvas id="pie-chart" width="200" height="50"></canvas>
-
+<canvas id="bar-chart" width="200" height="50"></canvas>
 
 </html>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script type="text/javascript">
+graficaPoste();
+
+  function graficaPoste(){
+
+    var arrayTipo = [];
+    var arrayData = [];
+    var arrayColor = [];
+        $.ajax({
+            url:"http://localhost/calculosElectricos/public/listapostes",
+            method:"GET", //indico que quiero traer info de la BD
+       
+            success:function(respuesta) //este es el json con toda la data
+            {
+              console.log(respuesta);
+
+              filas = ""; //declarando una variable en Jscript
+                $.each(respuesta,function(key,item){
+
+           console.log("asa");
+           arrayTipo.push(item.tipo_poste);
+           arrayData.push(item.altura_poste);
+           arrayColor.push("#3e95cd");
+
+                });
+            
+
+
+              //código de gráfico 
+
+              new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: arrayTipo,
+      datasets: [
+        {
+          label: "Poste",
+          backgroundColor: arrayColor,
+          data: arrayData
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Tipos de poste'
+      }
+    }
+});
+
+              }
+          });
+}
+
+ </script>
+
+
+
+
