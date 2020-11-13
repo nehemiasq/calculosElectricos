@@ -8,24 +8,24 @@
 
 
 </head>
-<body> 
+<body style="background-image: url('../img/fondo.jpg');"> 
  
-  <!--<img src="img/fondo.jpg">-->
 
-<center><h2>Bienvenido al Sistema de Gestión de Proyectos ABS INGENIEROS</h2></center>
+
+<center><h2 style="color:white">Bienvenido al Sistema de Gestión de Proyectos ABS INGENIEROS</h2></center>
   
 
   <br>
   <br>
   <center>
     <div class="form-group">
-    <label for="texto">Usuario</label>
+    <label for="texto" style="color:white">Usuario</label>
     <input id="nombreUsuario" type="text" style="width : 150px; heigth : 150px" class="form-control" placeholder="Ingrese usuario">
   </div>
 
   <br>
   <div class="form-group">
-    <label for="texto">Contraseña</label>
+    <label for="texto" style="color:white">Contraseña</label>
     <input id="claveUsuario" type="password" style="width : 150px; heigth : 150px" class="form-control" placeholder="Ingrese contraseña">
   </div>
 
