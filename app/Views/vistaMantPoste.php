@@ -96,7 +96,7 @@ function listarPostes(){
 
               //código de gráfico 
 
-              new Chart(document.getElementById("bar-chart"), {
+    /*new Chart(document.getElementById("bar-chart"), {
     type: 'bar',
     data: {
       labels: ["Concreto BT", "Concreto MT", "Madera"],
@@ -115,7 +115,7 @@ function listarPostes(){
         text: 'Tipos de poste'
       }
     }
-});
+});*/
 
               }
           });

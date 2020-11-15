@@ -89,7 +89,7 @@ function listarCables(){
 
               //código de gráfico
              
-             new Chart(document.getElementById("bar-chart-horizontal"), {
+            /* new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
     data: {
       labels: ["Rotura 255 kg.", "Rotura 300 kg.", "Rotura 428 kg.", "Rotura 685 kg.", "Rotura 1087 kg."],
@@ -108,7 +108,7 @@ function listarCables(){
         text: 'CABLES SELECCIONADOS SEGÚN TIRO DE ROTURA'
       }
     }
-});
+});*/
 
               }
           });

@@ -148,7 +148,7 @@ function listarProyectos(){
                 });
               $("#tabla_proyecto").html(filas);
 
-                arrayEstado.push(contInci);
+                /*arrayEstado.push(contInci);
                 arrayEstado.push(contEncur);
                 arrayEstado.push(contfinal);
 
@@ -169,7 +169,7 @@ function listarProyectos(){
                   text: 'Seguimiento de proyectos ABS INGENIEROS'
                 }
               }
-          });
+          });*/
 
               }
           });
