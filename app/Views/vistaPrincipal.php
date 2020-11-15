@@ -24,6 +24,7 @@
                   <a href="<?php echo base_url()?>/public/ControllerCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Mantenimiento Cable</a>
 
                   <a href="<?php echo base_url()?>/public/ControllerGraficoPrincipal" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Ver gráfico</a>
+
                   <!--<button class="btn btn-primary" onclick="calculo()">Eliminar</button>
 
                   <input type="submit" class="btn" name="btn_buscar" value="Salir">-->
@@ -31,6 +32,8 @@
                   <button onclick="exportTableToExcel('tblData')">Exportar excel</button>
                   
                   <button onclick="demoFromHTML()">Exportar pdf</button>
+
+                  <a href="<?php echo base_url()?>/public/ControllerLogin" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Salir</a>
              
             </div>
             <div id="customers" name="customers">
