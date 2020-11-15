@@ -33,7 +33,7 @@
                   
                   <button onclick="demoFromHTML()">Exportar pdf</button>
 
-                  <a href="<?php echo base_url()?>/public/ControllerLogin" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Salir</a>
+                  <a href="<?php echo base_url()?>/public/ControllerLogin" class="btn btn-danger" name="btn_buscar" value="Mantenimiento Poste">Salir</a>
              
             </div>
             <div id="customers" name="customers">
