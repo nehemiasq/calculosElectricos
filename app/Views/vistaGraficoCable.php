@@ -12,7 +12,7 @@
         <center><h2>GRÁFICO ESTADÍSTICO CABLE</h2></center>
         <div class="barra__buscador">
             
-                BOTONES-->
+                
                 <a href="<?php echo base_url()?>/public/ControllerCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Regresar</a>
 
                           
