@@ -12,9 +12,9 @@
         <center><h2>MENU PRINCIPAL</h2></center>
         <div class="barra__buscador">
             
-                <input type="text" name="buscar" placeholder="Buscar proyecto" 
+                <!--<input type="text" name="buscar" placeholder="Buscar proyecto" 
                 class="input__text" >
-                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">-->
 
                 <!--BOTONES-->
                  <a href="<?php echo base_url()?>/public/ControllerFormCalculo" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Nuevo Cálculo</a> 

@@ -12,9 +12,9 @@
         <center><h2>MANTENIMIENTO CABLE</h2></center>
         <div class="barra__buscador">
             
-                <input type="text" name="buscar" placeholder="buscar" 
+                <!--<input type="text" name="buscar" placeholder="buscar" 
                 class="input__text">
-                <input type="submit" class="btn" name="btn_buscar" value="Buscar">
+                <input type="submit" class="btn" name="btn_buscar" value="Buscar">-->
 
                 <a href="<?php echo base_url()?>/public/ControllerFormNuevoCable" class="btn btn-primary" name="btn_buscar" value="Mantenimiento Poste">Nuevo</a>
 
